@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#pragma hdrstop
+
+//---------------------------------------------------------------------------
+
+#pragma argsused
+using namespace std;
+vector<vector<int>> Vec;
+
+void dfs(int val) {
+  cout << val << " ";
+  for(const int& node: Vec[val]) {
+   dfs(node);
+   }
+ }
+
+int main()
+{
+   int u, v, N, E;
+   cin >> N >> E;
+   Vec.resize(N+1);
+
+   while(E--){
+    cin >> u >> v;
+    Vec[u].push_back(v);
+    }
+    dfs(1);
+        return 0;
+}
